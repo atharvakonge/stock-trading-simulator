@@ -7,6 +7,15 @@ A high-performance stock trading simulator built with **Go**, **PostgreSQL**, an
 ![WebSocket](https://img.shields.io/badge/WebSocket-Real--time-orange)
 ![Docker](https://img.shields.io/badge/Docker-Ready-2496ED?logo=docker)
 
+
+## Live Demo
+https://stock-trading-simulator-mxkh.onrender.com/
+
+## Screenshots
+<img width="1279" height="704" alt="image" src="https://github.com/user-attachments/assets/9cf460dd-ce50-4cfe-adaa-48110b4a0330" />
+<img width="1275" height="684" alt="image" src="https://github.com/user-attachments/assets/e7ddbae8-4967-46a7-bea0-09d6fcf37e7c" />
+
+
 ## ✨ Features
 
 - **Concurrent Order Processing**: Worker pool pattern with 5 goroutines processing trades in parallel
