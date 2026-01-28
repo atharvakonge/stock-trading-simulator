@@ -511,8 +511,9 @@
     </div>
 
     <script>
-        const API_URL = 'http://localhost:8080';
-        const WS_URL = 'ws://localhost:8080/ws/prices';
+        const API_URL = window.location.protocol + '//' + window.location.host;
+const WS_URL = (window.location.protocol === 'https:' ? 'wss://' : 'ws://') + 
+                window.location.host + '/ws/prices';
         const USER_ID = 1;
         
         let ws;
