@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Stock Prices</title>
+</head>
+<body>
+    <h1>Live Stock Prices</h1>
+    <div id="prices"></div>
+
+    <script>
+        const ws = new WebSocket('ws://localhost:8080/ws/prices');
+        const pricesDiv = document.getElementById('prices');
+
+        ws.onmessage = (event) => {
+            const update = JSON.parse(event.data);
+            const changeColor = update.change >= 0 ? 'green' : 'red';
+            
+            pricesDiv.innerHTML += `
+                <p>
+                    <strong>${update.symbol}</strong>: 
+                    $${update.price.toFixed(2)} 
+                    <span style="color: ${changeColor}">
+                        (${update.change > 0 ? '+' : ''}${update.change.toFixed(2)}%)
+                    </span>
+                </p>
+            `;
+        };
+
+        ws.onopen = () => {
+            console.log('Connected to WebSocket');
+        };
+
+        ws.onerror = (error) => {
+            console.error('WebSocket error:', error);
+        };
+    </script>
+</body>
+</html>
